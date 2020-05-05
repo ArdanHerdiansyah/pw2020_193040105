@@ -5,7 +5,7 @@
     //melakukan pengecekan apakah sudah melakukan login jika sudah redirect ke halaman admin
     if (isset($_SESSION['username'])) {
       header("Location: admin.php");
-      exit();
+      exit;
     }
     //login
     if (isset($_POST['submit'])) {
@@ -18,6 +18,13 @@
         if (password_verify($password, $row['password'])) {
           $_SESSION['username'] = $_POST['username'];
           $_SESSION['hash'] = hash('sha256', $row['id'], false);
+
+          // jika remember me dicentang
+          if (isset($_POST['remember'])) {
+            setcookie('username', $row['username'], time() + 60 * 60 * 24);
+            $hash = hash('sha256', $row['id']);
+            setcookie('hash', $hash, time() + 60 * 60 * 24);
+          }
         }
         if (hash('sha256', $row['id']) == $_SESSION['hash']) {
           header("Location: admin.php");

@@ -1,12 +1,9 @@
 <?php 
+	
 	// menghubungkan dengan file php lainnya
 	require 'function.php';
 
-	session_start();
-    if (!isset($_SESSION['username'])) {
-        header("Location: login.php");
-        exit;
-    }
+	
 
 	if (isset($_GET['cari'])) {
 		$keyword = $_GET['keyword'];

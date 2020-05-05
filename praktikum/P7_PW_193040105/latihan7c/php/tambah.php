@@ -1,10 +1,12 @@
 <?php 
-	require 'function.php';
 	session_start();
-    if (!isset($_SESSION['username'])) {
-        header("Location: login.php");
-        exit;
-    }
+
+	require 'function.php';
+
+	if (!isset($_SESSION['username'])) {
+		header("Location: login.php");
+		exit;
+	  }
 
 	if (isset($_POST['tambah'])) {
 		if (tambah($_POST) >0) {

@@ -1,10 +1,12 @@
 <?php 
-	require 'function.php';
 	session_start();
-    if (!isset($_SESSION['username'])) {
-        header("Location: login.php");
-        exit;
-    }
+	require 'function.php';
+
+
+	if (!isset($_SESSION['username'])) {
+		header("Location: login.php");
+		exit;
+	  }
 
 	$id = $_GET['id'];
 	$pakai = query("SELECT * FROM pakaian WHERE id = $id") [0];
