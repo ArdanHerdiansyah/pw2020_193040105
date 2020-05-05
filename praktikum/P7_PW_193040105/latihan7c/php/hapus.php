@@ -1,24 +1,25 @@
-<?php 
-	session_start();
-	
-	require 'function.php';
+<?php
 
-	if (!isset($_SESSION['username'])) {
-		header("Location: login.php");
-		exit;
-	  }
 
-	$id = $_GET['id'];
+require 'function.php';
+session_start();
 
-	if (hapus($id) > 0) {
-		echo "<script>
+if (!isset($_SESSION['username'])) {
+	header("Location: login.php");
+	exit;
+}
+
+
+$id = $_GET['id'];
+
+if (hapus($id) > 0) {
+	echo "<script>
 				alert('Data Berhasil dihapus!');
 				document.location.href = 'admin.php';
 			</script>";
-	} else {
-		echo "<script>
+} else {
+	echo "<script>
 				alert('Data Gagal dihapus!');
 				document.location.href = 'admin.php';
 			</script>";
-	}
- ?>
+}

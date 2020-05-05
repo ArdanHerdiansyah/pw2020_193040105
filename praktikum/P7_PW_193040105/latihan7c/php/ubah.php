@@ -1,39 +1,42 @@
-<?php 
-	session_start();
-	require 'function.php';
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+	header("Location: login.php");
+	exit;
+}
+require 'function.php';
 
 
-	if (!isset($_SESSION['username'])) {
-		header("Location: login.php");
-		exit;
-	  }
 
-	$id = $_GET['id'];
-	$pakai = query("SELECT * FROM pakaian WHERE id = $id") [0];
+$id = $_GET['id'];
+$pakai = query("SELECT * FROM pakaian WHERE id = $id")[0];
 
 
-	if (isset($_POST['ubah'])) {
-		if (ubah($_POST) >0) {
-			echo "<script>
+if (isset($_POST['ubah'])) {
+	if (ubah($_POST) > 0) {
+		echo "<script>
 					alert('Data Berhasil diubah!');
 					document.location.href = 'admin.php';
 				</script>";
-		} else {
-			echo "<script>
+	} else {
+		echo "<script>
 					alert('Data Gagal diubah!');
 					document.location.href = 'admin.php';
 				</script>";
-		}
 	}
- ?>
+}
+?>
 
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Tambah Data Pakaian</title>
 	<link rel="stylesheet" type="text/css" href="../css/tambah.css">
 </head>
+
 <body>
 	<div class="container">
 		<h1>Tambah Data Pakaian</h1>
@@ -79,4 +82,5 @@
 		</form>
 	</div>
 </body>
+
 </html>
