@@ -1,0 +1,57 @@
+body {
+    font-family: Georgia;
+    background-image: url(../assets/img/rt.png);
+}
+
+.ard {
+    height: 370px;
+}
+.container {
+    margin: 0px auto 0px auto;
+    text-align:  center;
+    width: 700px;
+    padding: 20px;
+    background-color: white;
+    height: 420px;
+  }
+
+.container .gambar{
+    float: left;
+    margin-right: 30px;
+}
+.gambar {
+    margin: right;
+}
+.container p    {
+    text-align: left;
+}
+.tombol-kembali {
+    text-align: left;
+    background-color: gray;
+}
+.a {
+    font-weight: bold;
+    font-size: 20px;
+}
+.footer {
+    text-align: justify;
+    background-color: #333333;
+    font-family: arial;
+    color: white;
+    width: 740px;
+    height: 10px;
+    margin: 0px auto 0px auto;
+    padding-top: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.footer p {
+    margin-top: 0px;
+    margin-top: 0px;
+    margin-top: 20px;
+    margin-top: 0px;
+}
+
+
+
+   
